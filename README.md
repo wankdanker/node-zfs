@@ -25,19 +25,19 @@ $ npm install --save zfs
 # Usage
 
 ```
-var zfs-filesystem = require('zfs');
+var zfsFilesystem = require('zfs');
 ```
 
 ##Now you can address the zfs library as follows:
 
 ### To use the zfs command implementation:
 ```
-zfs-filesystem.zfs.
+zfsFilesystem.zfs.
 ```
 ###To use the zpool implementation:
 
 ```
-zfs-filesystem.zpool.
+zfsFilesystem.zpool.
 ```
 
 ## Implemented commands for the ZFS tool
@@ -47,7 +47,7 @@ zfs-filesystem.zpool.
 The list command lists a specific zfs dataset or all datasets. All possible options can be found inside the lib/zfs.js file.
 
 ```
-zfs-filesystem.zfs.list(function (err, list) {
+zfsFilesystem.zfs.list(function (err, list) {
     console.log(list)
 });
 ```
@@ -62,7 +62,7 @@ var opts = {
     property: 'quota'
 };
 
-zfs-filesystem.zfs.get(opts, function (err, options) {
+zfsFilesystem.zfs.get(opts, function (err, options) {
     console.log(options);
 });
 ```
@@ -78,7 +78,7 @@ var opts = {
     value: '1024G'
 };
 
-zfs-filesystem.zfs.set(opts, function (err, output) {
+zfsFilesystem.zfs.set(opts, function (err, output) {
     console.log(output);
 });
 ```
@@ -92,7 +92,7 @@ var opts = {
     name: 'my-dataset-name'
 };
 
-zfs-filesystem.zfs.destroy(opts, function (err, output) {
+zfsFilesystem.zfs.destroy(opts, function (err, output) {
     console.log(output);
 });
 ```
@@ -106,7 +106,7 @@ var opts = {
     name: 'my-new-dataset-name'
 };
 
-zfs-filesystem.zfs.create(opts, function (err, output) {
+zfsFilesystem.zfs.create(opts, function (err, output) {
     console.log(output);
 });
 ```
@@ -121,7 +121,7 @@ var opts = {
     dataset: 'my-dataset-name'
 };
 
-zfs-filesystem.zfs.snapshot(opts, function (err, output) {
+zfsFilesystem.zfs.snapshot(opts, function (err, output) {
     console.log(output);
 });
 ```
@@ -136,7 +136,7 @@ var opts = {
     dataset: 'my-mountpoint-name'
 };
 
-zfs-filesystem.zfs.clone(opts, function (err, output) {
+zfsFilesystem.zfs.clone(opts, function (err, output) {
     console.log(output);
 });
 ```
@@ -151,7 +151,7 @@ var opts = {
     dataset: 'my-filesystem-name'
 };
 
-zfs-filesystem.zfs.mount(opts, function (err, output) {
+zfsFilesystem.zfs.mount(opts, function (err, output) {
     console.log(output);
 });
 ```
@@ -165,7 +165,7 @@ var opts = {
     force: true
 };
 
-zfs-filesystem.zfs.unmount(opts, function (err, output) {
+zfsFilesystem.zfs.unmount(opts, function (err, output) {
     console.log(output);
 });
 ```
@@ -180,7 +180,7 @@ var opts = {
     verbose : true
 };
 
-zfs-filesystem.zfs.send(opts, function (err, sendStream) {
+zfsFilesystem.zfs.send(opts, function (err, sendStream) {
     sendStream.on('error', function (err) {
         console.error(err);
     });
@@ -205,7 +205,7 @@ var opts = {
     verbose : true
 };
 
-zfs-filesystem.zfs.receive(opts, function (err, receiveStream) {
+zfsFilesystem.zfs.receive(opts, function (err, receiveStream) {
     receiveStream.on('error', function (err) {
         console.error(err);
     });
@@ -232,7 +232,7 @@ var opts = {
     devices: ['/dev/vdb', '/dev/vdc']
 };
 
-zfs-filesystem.zpool.create(opts, function (err, output) {
+zfsFilesystem.zpool.create(opts, function (err, output) {
     console.log(output);
 });
 ```
@@ -247,7 +247,7 @@ var opts = {
     devices: '/dev/vdd'
 };
 
-zfs-filesystem.zpool.add(opts, function (err, output) {
+zfsFilesystem.zpool.add(opts, function (err, output) {
     console.log(output);
 });
 ```
@@ -263,7 +263,7 @@ var opts = {
     value: 'Added some comment to a datastore'
 };
 
-zfs-filesystem.zpool.set(opts, function (err, output) {
+zfsFilesystem.zpool.set(opts, function (err, output) {
     console.log(output);
 });
 ```
@@ -277,7 +277,7 @@ var opts = {
     name: 'my-datastore',
 };
 
-zfs-filesystem.zpool.destroy(opts, function (err, output) {
+zfsFilesystem.zpool.destroy(opts, function (err, output) {
     console.log(output);
 });
 ```
@@ -287,7 +287,7 @@ zfs-filesystem.zpool.destroy(opts, function (err, output) {
 Lists the given pools along with a health status and space usage. If no pools are specified, all pools in the system are listed. 
 
 ```js
-zfs-filesystem.zpool.list(function (err, output) {
+zfsFilesystem.zpool.list(function (err, output) {
     console.log(output);
 });
 ```
@@ -297,7 +297,7 @@ zfs-filesystem.zpool.list(function (err, output) {
 Retrieves the given list of properties. When no name and property specified, it shows all properties for all datastores. See the zpool manpage for possible options and values.
 
 ```js
-zfs-filesystem.zpool.get(function (err, output) {
+zfsFilesystem.zpool.get(function (err, output) {
     console.log(output);
 });
 ```
